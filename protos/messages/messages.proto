@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.github.patrickrodee.messageservice";
+option java_outer_classname = "MessageServiceProto";
+
+package messages;
+
+service MessageService {
+	rpc GetMessage(MessageRequest) returns (MessageResponse) {}
+	rpc SaveMessage(SaveMessageRequest) returns (SaveMessageResponse) {}
+}
+
+message MessageRequest {
+	string key = 1;
+}
+
+message MessageResponse {
+	string value = 1;
+}
+
+message SaveMessageRequest {
+	string key = 1;
+	string value = 2;
+}
+
+message SaveMessageResponse {
+	bool ok = 1;
+}
